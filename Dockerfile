@@ -38,4 +38,3 @@ RUN curl -LO https://get.helm.sh/helm-v$HELM_VERSION-linux-amd64.tar.gz \
 USER tfc-agent
 
 ENTRYPOINT ["/home/tfc-agent/bin/tfc-agent"]
-# bump
