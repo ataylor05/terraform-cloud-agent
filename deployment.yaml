@@ -1,1 +1,22 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: terraform-agents
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: terraform-agents
+  template:
+    metadata:
+      labels:
+        app: terraform-agents
+    spec:
+      containers:
+      - name: terraform-agents
+        image: johndvs/terraform-cloud-agents:latest
+        env:
+        - name: TFC_AGENT_NAME
+          value: "self-hosted"
+        - name: TFC_AGENT_TOKEN
+          value: "12345"
